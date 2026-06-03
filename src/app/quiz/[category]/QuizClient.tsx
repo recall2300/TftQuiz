@@ -200,15 +200,23 @@ export default function QuizClient({ category, count }: Props) {
 
       <Progress value={progress} className="mb-6 h-1.5" />
 
-      {/* Image */}
-      <div className="mb-6 flex justify-center">
-        <div className="relative h-48 w-48 overflow-hidden rounded-2xl border-2 border-amber-200 shadow-md bg-white">
-          <Image src={question.image_url} alt="퀴즈 이미지" fill className="object-cover" unoptimized />
+      {/* Image or icon */}
+      {question.image_url ? (
+        <div className="mb-6 flex justify-center">
+          <div className="relative h-48 w-48 overflow-hidden rounded-2xl border-2 border-amber-200 shadow-md bg-white">
+            <Image src={question.image_url} alt="퀴즈 이미지" fill className="object-cover" unoptimized />
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="mb-4 flex justify-center">
+          <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-amber-50 border-2 border-amber-200 text-4xl shadow-sm">
+            {category.icon}
+          </div>
+        </div>
+      )}
 
       {/* Question */}
-      <h2 className="mb-2 text-center text-xl font-semibold text-foreground">
+      <h2 className={`mb-2 text-center font-semibold text-foreground ${question.image_url ? "text-xl" : "text-2xl leading-snug"}`}>
         {question.question_text}
       </h2>
       {question.is_multi_answer && (

@@ -6,17 +6,23 @@ import { ChevronRight } from "lucide-react";
 import type { QuizCategory } from "@/types/quiz";
 
 const COLOR_MAP: Record<string, string> = {
-  blue: "border-blue-500/50 hover:border-blue-400 hover:tft-glow-blue",
-  yellow: "border-yellow-500/50 hover:border-yellow-400",
-  purple: "border-purple-500/50 hover:border-purple-400",
-  green: "border-green-500/50 hover:border-green-400",
+  blue:   "border-blue-300 hover:border-blue-400 hover:shadow-blue-100",
+  yellow: "border-amber-300 hover:border-amber-400 hover:shadow-amber-100",
+  purple: "border-purple-300 hover:border-purple-400 hover:shadow-purple-100",
+  green:  "border-green-300 hover:border-green-400 hover:shadow-green-100",
+  orange: "border-orange-300 hover:border-orange-400 hover:shadow-orange-100",
+  cyan:   "border-cyan-300 hover:border-cyan-400 hover:shadow-cyan-100",
+  red:    "border-red-300 hover:border-red-400 hover:shadow-red-100",
 };
 
 const BADGE_COLOR_MAP: Record<string, string> = {
-  blue: "bg-blue-500/20 text-blue-300 border-blue-500/30",
-  yellow: "bg-yellow-500/20 text-yellow-300 border-yellow-500/30",
-  purple: "bg-purple-500/20 text-purple-300 border-purple-500/30",
-  green: "bg-green-500/20 text-green-300 border-green-500/30",
+  blue:   "hover:bg-blue-50 hover:border-blue-400 hover:text-blue-700",
+  yellow: "hover:bg-amber-50 hover:border-amber-400 hover:text-amber-700",
+  purple: "hover:bg-purple-50 hover:border-purple-400 hover:text-purple-700",
+  green:  "hover:bg-green-50 hover:border-green-400 hover:text-green-700",
+  orange: "hover:bg-orange-50 hover:border-orange-400 hover:text-orange-700",
+  cyan:   "hover:bg-cyan-50 hover:border-cyan-400 hover:text-cyan-700",
+  red:    "hover:bg-red-50 hover:border-red-400 hover:text-red-700",
 };
 
 const COUNT_OPTIONS = [10, 20, 30];
@@ -39,7 +45,7 @@ export default async function QuizPage() {
         {(categories as QuizCategory[])?.map((cat) => (
           <Card
             key={cat.id}
-            className={`border-2 bg-card transition-all duration-200 ${COLOR_MAP[cat.color] ?? "border-border"}`}
+            className={`border-2 bg-white shadow-sm transition-all duration-200 hover:shadow-md ${COLOR_MAP[cat.color] ?? "border-border"}`}
           >
             <CardHeader className="pb-3">
               <div className="flex items-center gap-3">

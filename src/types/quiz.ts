@@ -16,7 +16,7 @@ export type QuizChoice = {
 export type QuizQuestion = {
   id: number;
   category_id: number;
-  image_url: string;
+  image_url: string | null;
   question_text: string;
   choices: QuizChoice[];
   correct_answers: string[];

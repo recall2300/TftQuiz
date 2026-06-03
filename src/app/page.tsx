@@ -8,17 +8,23 @@ import ReportModal from "@/components/home/ReportModal";
 import type { QuizCategory, OverallLeaderboardEntry } from "@/types/quiz";
 
 const COLOR_MAP: Record<string, string> = {
-  blue: "hover:border-blue-400 hover:shadow-blue-100",
+  blue:   "hover:border-blue-400 hover:shadow-blue-100",
   yellow: "hover:border-amber-400 hover:shadow-amber-100",
   purple: "hover:border-purple-400 hover:shadow-purple-100",
-  green: "hover:border-green-400 hover:shadow-green-100",
+  green:  "hover:border-green-400 hover:shadow-green-100",
+  orange: "hover:border-orange-400 hover:shadow-orange-100",
+  cyan:   "hover:border-cyan-400 hover:shadow-cyan-100",
+  red:    "hover:border-red-400 hover:shadow-red-100",
 };
 
 const COUNT_COLOR_MAP: Record<string, string> = {
-  blue: "hover:bg-blue-50 hover:border-blue-400 hover:text-blue-700",
+  blue:   "hover:bg-blue-50 hover:border-blue-400 hover:text-blue-700",
   yellow: "hover:bg-amber-50 hover:border-amber-400 hover:text-amber-700",
   purple: "hover:bg-purple-50 hover:border-purple-400 hover:text-purple-700",
-  green: "hover:bg-green-50 hover:border-green-400 hover:text-green-700",
+  green:  "hover:bg-green-50 hover:border-green-400 hover:text-green-700",
+  orange: "hover:bg-orange-50 hover:border-orange-400 hover:text-orange-700",
+  cyan:   "hover:bg-cyan-50 hover:border-cyan-400 hover:text-cyan-700",
+  red:    "hover:bg-red-50 hover:border-red-400 hover:text-red-700",
 };
 
 const COUNT_OPTIONS = [10, 20, 30];
