@@ -26,23 +26,25 @@ function UserRow({
   sub?: string;
 }) {
   return (
-    <div className="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:bg-muted/30">
-      <span className="w-7 text-center text-lg">
+    <div className="flex items-center gap-3 rounded-xl border border-border bg-white px-4 py-3 shadow-sm transition-colors hover:bg-amber-50/50">
+      <span className="w-7 shrink-0 text-center text-lg">
         {index < 3 ? (
           MEDAL[index]
         ) : (
-          <span className="text-sm text-muted-foreground">{index + 1}</span>
+          <span className="text-sm font-semibold text-muted-foreground">{index + 1}</span>
         )}
       </span>
-      <Avatar className="h-8 w-8">
+      <Avatar className="h-8 w-8 shrink-0">
         <AvatarImage src={entry.avatar_url ?? undefined} />
-        <AvatarFallback className="text-xs">{entry.username?.[0]?.toUpperCase()}</AvatarFallback>
+        <AvatarFallback className="text-xs bg-amber-100 text-amber-800">
+          {entry.username?.[0]?.toUpperCase()}
+        </AvatarFallback>
       </Avatar>
       <div className="flex flex-1 min-w-0 flex-col">
         <span className="truncate text-sm font-medium">{entry.username ?? "익명"}</span>
         {sub && <span className="text-xs text-muted-foreground">{sub}</span>}
       </div>
-      <div className="text-right">
+      <div className="shrink-0 text-right">
         <p className="font-bold tft-gold">{score.toLocaleString()}점</p>
         <RankBadge score={score} />
       </div>
@@ -52,10 +54,10 @@ function UserRow({
 
 function EmptyState() {
   return (
-    <div className="py-12 text-center text-muted-foreground">
-      <Trophy className="mx-auto mb-3 h-10 w-10 opacity-30" />
+    <div className="py-10 text-center text-muted-foreground">
+      <Trophy className="mx-auto mb-3 h-10 w-10 opacity-20" />
       <p className="text-sm">아직 기록이 없습니다.</p>
-      <Link href="/quiz" className="mt-2 inline-block text-sm text-accent hover:underline">
+      <Link href="/" className="mt-2 inline-block text-sm text-accent hover:underline">
         첫 번째 도전자가 되어보세요!
       </Link>
     </div>
@@ -81,7 +83,7 @@ export default async function LeaderboardPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
       <div className="mb-10 text-center">
-        <Trophy className="mx-auto mb-3 h-10 w-10 text-yellow-400" />
+        <Trophy className="mx-auto mb-3 h-10 w-10 text-amber-400" />
         <h1 className="text-3xl font-bold tft-gold">랭킹</h1>
         <p className="text-muted-foreground">최고의 TFT 퀴즈 마스터를 찾아라</p>
       </div>
@@ -91,9 +93,7 @@ export default async function LeaderboardPage() {
         <div className="mb-4 flex items-center gap-2">
           <Trophy className="h-5 w-5 tft-gold" />
           <h2 className="text-xl font-bold">종합 랭킹</h2>
-          <Badge variant="outline" className="ml-auto text-xs">
-            TOP 20
-          </Badge>
+          <Badge variant="outline" className="ml-auto text-xs">TOP 20</Badge>
         </div>
         <div className="space-y-2">
           {(overall as OverallLeaderboardEntry[])?.length ? (
@@ -130,9 +130,7 @@ export default async function LeaderboardPage() {
                 <div className="mb-3 flex items-center gap-2">
                   <span className="text-xl">{cat.icon}</span>
                   <h3 className="font-semibold">{cat.display_name}</h3>
-                  <Badge variant="outline" className="ml-auto text-xs">
-                    TOP 10
-                  </Badge>
+                  <Badge variant="outline" className="ml-auto text-xs">TOP 10</Badge>
                 </div>
                 <div className="space-y-2">
                   {entries?.slice(0, 10).length ? (
@@ -156,7 +154,7 @@ export default async function LeaderboardPage() {
       </section>
 
       {/* Rank legend */}
-      <div className="mt-12 rounded-xl border border-border bg-card p-4">
+      <div className="mt-12 rounded-xl border border-border bg-white p-4 shadow-sm">
         <div className="mb-3 flex items-center gap-2">
           <Zap className="h-4 w-4 tft-gold" />
           <span className="text-sm font-medium">랭크 기준</span>

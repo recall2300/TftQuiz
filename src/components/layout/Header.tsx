@@ -38,7 +38,7 @@ export default function Header({ user }: Props) {
   const avatarUrl = user?.user_metadata?.avatar_url;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-border bg-white/90 backdrop-blur-sm">
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
           <Swords className="h-5 w-5 tft-gold" />
@@ -46,9 +46,6 @@ export default function Header({ user }: Props) {
         </Link>
 
         <nav className="flex items-center gap-1">
-          <Link href="/quiz" className={cn(buttonVariants({ variant: "ghost", size: "sm" }))}>
-            퀴즈
-          </Link>
           <Link href="/leaderboard" className={cn(buttonVariants({ variant: "ghost", size: "sm" }))}>
             <Trophy className="mr-1 h-4 w-4" />
             랭킹
@@ -60,11 +57,11 @@ export default function Header({ user }: Props) {
                 <Button variant="ghost" size="sm" className="gap-2 pl-2">
                   <Avatar className="h-7 w-7">
                     <AvatarImage src={avatarUrl} />
-                    <AvatarFallback className="text-xs">
+                    <AvatarFallback className="text-xs bg-amber-100 text-amber-800">
                       {username[0]?.toUpperCase()}
                     </AvatarFallback>
                   </Avatar>
-                  <span className="hidden sm:inline">{username}</span>
+                  <span className="hidden sm:inline text-sm">{username}</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-44">
@@ -82,7 +79,7 @@ export default function Header({ user }: Props) {
           ) : (
             <Link
               href="/login"
-              className={cn(buttonVariants({ size: "sm" }), "tft-gold-bg text-black font-semibold")}
+              className={cn(buttonVariants({ size: "sm" }), "tft-gold-bg font-semibold")}
             >
               로그인
             </Link>
